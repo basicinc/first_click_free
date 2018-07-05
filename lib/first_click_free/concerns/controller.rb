@@ -12,29 +12,23 @@ module FirstClickFree
 
         # Public: Turn 'on' first click free for this controller.
         #
-        # options - The options to pass through to `before_filter`.
+        # options - The options to pass through to `before_action`.
         #           Common options are `only` and `except`, to limit
         #           which actions are affected.
         #
-        #  DEPRECATION: `before_filter` is deprecated in favour of `before_action`
-        #               in Rails 4.
-        #
-        # Returns the result of the call to `before_filter`.
+        # Returns the result of the call to `before_action`.
         def allow_first_click_free(options = {})
-          before_filter :record_or_reject_first_click_free!, options
+          before_action :record_or_reject_first_click_free!, options
         end
 
         # Public: Skip first click free for a controller or action.
         #
-        # options - The options to pass through to `skip_before_filter`,
+        # options - The options to pass through to `skip_before_action`,
         #           for example to limit which actions should be skipped.
         #
-        # DEPRECATION: `skip_before_filter` is deprecated in favour of
-        #              with `skip_before_action` in Rails 4.
-        #
-        # Returns the result of the call to `skip_before_filter`.
+        # Returns the result of the call to `skip_before_action`.
         def skip_first_click_free(options = {})
-          skip_before_filter :record_or_reject_first_click_free!, options
+          skip_before_action :record_or_reject_first_click_free!, options
         end
 
       end
